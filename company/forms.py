@@ -4,5 +4,4 @@ from django import forms
 class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = ['name', 'eae', 'parent']
-
+        fields = ['name', 'company_estimated_earnings', 'parent']

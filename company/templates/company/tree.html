@@ -9,7 +9,7 @@ Tree
 <ul>
     {% recursetree nodes %}
         <li>
-            {{ node.name }} | {{ node.eae }} |
+            {{ node.name }} | {{ node.company_estimated_earnings }} | {{ node.count_earnings }}
             {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}
