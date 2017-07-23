@@ -7,7 +7,11 @@ Home
 {% block body %}
 
 {% for company in company_list %}
-    <li><a href="{% url 'company:company_detail' company.pk %}">{{ company.name }}</a></li>
-    <br>
+    <div class="list-group">
+        <a href="{% url 'company:company_detail' company.pk %}" class="list-group-item">Name: {{ company.name }}
+            <br>Capital: {{ company.eae }}
+            <br>Parent: {{ company.parent }}</a>
+        <br>
+    </div>
 {% endfor %}
 {% endblock %}

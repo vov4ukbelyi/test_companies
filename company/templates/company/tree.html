@@ -1,0 +1,21 @@
+{% extends 'company/base.html' %}
+
+{% block title %}
+Tree
+{% endblock %}
+
+{% block body %}
+{% load mptt_tags %}
+<ul>
+    {% recursetree nodes %}
+        <li>
+            {{ node.name }} | {{ node.eae }} |
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+{% endblock %}

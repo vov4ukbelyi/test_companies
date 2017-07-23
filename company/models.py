@@ -1,10 +1,14 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from mptt.models import MPTTModel, TreeForeignKey
 
-class Company(models.Model):
+class Company(MPTTModel):
     name = models.CharField(max_length=50, null=True)
     eae = models.DecimalField(max_digits=8, decimal_places=2, null=True)
-    parent_company = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
     def get_absolute_url(self):
         return reverse('company:company_detail', kwargs={'pk': self.pk})

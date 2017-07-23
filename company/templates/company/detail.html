@@ -4,20 +4,15 @@ Detail
 {% endblock %}
 
 {% block body %}
-<p>{{ company.name }}</p>
-<p>{{ company.eae }}</p>
-<p>{{ company.parent_company }}</p>
 
+    <p>Name: {{ company.name }}</p>
+    <p>Capital: {{ company.eae }}</p>
+    <p>Parent: {{ company.parent}}</p>
 
-    <form action="{% url 'company:company_edit' company.pk %}" method="post">
+    <form action="{% url 'company:company_edit' company.pk %}" method="">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Edit</button>
-    </form>
-
-    <form action="{% url 'company:company_delete' company.pk %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
         <button type="submit" class="btn btn-success">Delete</button>
     </form>
 

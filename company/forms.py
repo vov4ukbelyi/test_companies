@@ -1,7 +1,8 @@
-from django.contrib.auth.models import User
+from .models import Company
 from django import forms
 
-class UserForm(forms.ModelForm):
+class CompanyForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['name', 'eae', 'company_parent']
+        model = Company
+        fields = ['name', 'eae', 'parent']
+
