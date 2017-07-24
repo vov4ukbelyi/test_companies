@@ -25,7 +25,7 @@ SECRET_KEY = 'y5)tno75=y(%h&3_0l5_0*veovl44a*=7m12*3nkvb5@@hxv91'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thawing-chamber-29970.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
