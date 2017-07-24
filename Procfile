@@ -1,1 +1,1 @@
-web: gunicorn test_companies.wsgi --log-file -
+web: python manage.py runserver
