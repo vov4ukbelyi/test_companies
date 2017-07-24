@@ -81,8 +81,8 @@ DATABASES = {
         'NAME': 'companydb',
         'USER': 'companyuser',
         'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
