@@ -9,7 +9,7 @@ After cloning this repository to your local folder, you can use virtualenv for t
 - ```create user companyuser;```
 - ```create database companydb owner companyuser;```
 - ```alter user companyuser with encrypted password 'mypassword';```
-- ```\q
+- ```\q;```
 - ```python manage.py makemigrations```
 - ```python manage.py migrate```
 - ```python manage.py createsuperuser```
@@ -24,7 +24,6 @@ After cloning this repository to your local folder, you must configure you datab
 1. Run command ```heroku create``` in folder where requirements.txt.
 2. Use ```git push heroku master``` for push app in Heroku.
 3. Command ```heroku run python manage.py migrate``` migrate db in server Heroku.
-<br />
 4. Then you can run your server ```heroku ps:scale web=1```. And open them in browser ```heroku open```.<br />
 
 ### Local Heroku
