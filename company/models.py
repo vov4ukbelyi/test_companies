@@ -1,9 +1,11 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+company_estimated_earnings = ['earnings']
+
 class Company(MPTTModel):
     name = models.CharField(max_length=50, null=True)
-    company_estimated_earnings = models.DecimalField(max_digits=8, decimal_places=2, null=True)
+    earnings = models.DecimalField(max_digits=8, decimal_places=2, null=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='childrens', db_index=True, on_delete=models.CASCADE)
 
     class MPTTMeta:
@@ -31,5 +33,5 @@ class Company(MPTTModel):
         company_earnings = self.get_all_children()
         total_company_estimated_earnings = 0
         for comp in company_earnings:
-            total_company_estimated_earnings += comp.company_estimated_earnings
+            total_company_estimated_earnings += comp.earnings
         return total_company_estimated_earnings

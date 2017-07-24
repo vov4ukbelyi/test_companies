@@ -9,8 +9,20 @@ Home
 {% for company in company_list %}
     <div class="list-group">
         <a href="{% url 'company:company_detail' company.pk %}" class="list-group-item">Name: {{ company.name }}
-            <br>Capital: {{ company.company_estimated_earnings }}
-            <br>Parent: {{ company.parent }}</a>
+            <br>Capital: {{ company.earnings }}
+            <br>Parent: {{ company.parent }}
+         <form action="{% url 'company:company_edit' company.pk %}" method="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Edit</button>
+         </form>
+
+        <form action="{% url 'company:company_delete' company.pk %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Delete</button>
+        </form>
+        </a>
         <br>
     </div>
 {% endfor %}
